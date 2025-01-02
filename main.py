@@ -19,7 +19,7 @@ class CSV:
 
 
     @classmethod
-    def addEntry(cls, date, amount, category, description):
+    def add_entry(cls, date, amount, category, description):
         new_entry = {
             "date" : date,
             "amount" : amount,
@@ -29,13 +29,12 @@ class CSV:
 
         }
         with open(cls.CSV_FILE, "a", newline="") as csvfile:
-            write =csv.DictWriter()
+            write =csv.DictWriter(csvfile, fieldnames=cls.COLUMN)
+            writer.writerow(new_entry)
+        print("Entry added successfully")
 
 
 CSV.initialize_csv()
-
-
-
-
+CSV.add_entry("20-07-2024",12.,"Income","Salary")
 
 
