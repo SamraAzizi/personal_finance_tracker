@@ -39,11 +39,13 @@ def get_category():
     if category in CATEGORIES:
         return CATEGORIES[category]
 
-    else:
-        print("Invalid category please enter 'I' for Income and 'E' for Exprense")
-        return get_category()
+    
+    print("Invalid category please enter 'I' for Income and 'E' for Exprense")
+    return get_category()
 
 
 def get_description():
+
+    return input("Enter a description (optional)")
 
     
