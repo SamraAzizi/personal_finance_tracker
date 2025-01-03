@@ -29,7 +29,7 @@ class CSV:
 
         }
         with open(cls.CSV_FILE, "a", newline="") as csvfile:
-            write =csv.DictWriter(csvfile, fieldnames=cls.COLUMN)
+            writer =csv.DictWriter(csvfile, fieldnames=cls.COLUMN)
             writer.writerow(new_entry)
         print("Entry added successfully")
 
