@@ -39,6 +39,10 @@ class CSV:
     def get_transaction(cls, start_date, end_date):
         df = pd.read_csv(cls.CSV_FILE)
         df["date"] = pd.to_datetime(df["date"], format=CSV.FORMAT)
+        start_date = datetime.strptime(start_date, CSV.FORMAT)
+        end_date = datetime.strptime(end_date, CSV.FORMAT)
+
+        mask = (df["date"] >= start_date) & (df["date"] <= end_date)
 
 def add():
     CSV.initialize_csv()
