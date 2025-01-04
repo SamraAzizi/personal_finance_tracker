@@ -6,6 +6,7 @@ from data_entry import get_amount, get_category, get_date, get_description
 class CSV:
     CSV_FILE = "finance_data.csv"
     COLUMN = ["date", "amount", "category", "description"]
+    FORMAT = "%d-%m-%Y"
     
 
     @classmethod
@@ -32,6 +33,12 @@ class CSV:
             writer =csv.DictWriter(csvfile, fieldnames=cls.COLUMN)
             writer.writerow(new_entry)
         print("Entry added successfully")
+
+    
+    @classmethod
+    def get_transaction(cls, start_date, end_date):
+        df = pd.read_csv(cls.CSV_FILE)
+        df["date"] = pd.to_datetime(df["date"], format=CSV.FORMAT)
 
 def add():
     CSV.initialize_csv()
