@@ -87,6 +87,15 @@ def main():
             start_date = get_date("Enter the start date (dd-mm-yyyy): ")
             end_date = get_date("Enter the end date (dd-mm-yyyy): ")
             CSV.get_transaction(start_date, end_date)
-            
+
+        elif choice == "3":
+            print("Existing...")
+            break
+        else:
+            print("Invalid choice. Enter 1, 2 or 3.")
+
+if __name__ == "__main__":
+    main()
+
         
 
