@@ -52,6 +52,12 @@ class CSV:
             print(filtered_df.to_string(index=False, formatters={"date": lambda x:x.strftime(CSV.FORMAT)}))
 
 
+            total_income = filtered_df[filtered_df["category"] == "Income"]["amount"].sum()
+            total_expense = filtered_df[filtered_df["category"] == "Expense"]["amount"].sum()
+            print("\nSummary:")
+            print(f"Total Income : ${total_income:.2f}")
+            print(f"Total expense : ${total_expense:.2f}")
+            print("")
 def add():
     CSV.initialize_csv()
     date = get_date("Enter the date of transaction (dd-mm-yyyy) or Enter for today's date: ", allow_default=True)
