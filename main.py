@@ -57,7 +57,9 @@ class CSV:
             print("\nSummary:")
             print(f"Total Income : ${total_income:.2f}")
             print(f"Total expense : ${total_expense:.2f}")
-            print("")
+            print(f"Net Savings : ${(total_income - total_expense):.2f}")
+
+        return filtered_df
 def add():
     CSV.initialize_csv()
     date = get_date("Enter the date of transaction (dd-mm-yyyy) or Enter for today's date: ", allow_default=True)
@@ -70,4 +72,5 @@ CSV.initialize_csv()
 CSV.add_entry("20-07-2024",12.,"Income","Salary")
 
 
-add()
+csv.getransaction("01-01-2023","30-07-2024")
+
