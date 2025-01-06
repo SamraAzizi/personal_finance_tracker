@@ -68,6 +68,14 @@ def add():
     description = get_description()
     CSV.add_entry(date, amount , category, description)
 
+
+
+
+def plot_transactions(df):
+    df.set_index('date', inplace=True)
+    income_df = df[df["category"] == "Income"]
+
+
 CSV.initialize_csv()
 CSV.add_entry("20-07-2024",12.,"Income","Salary")
 
