@@ -73,7 +73,10 @@ def add():
 
 def plot_transactions(df):
     df.set_index('date', inplace=True)
-    income_df = df[df["category"] == "Income"]
+    income_df = df[df["category"] == "Income"].resample("D").sum().reindex(df.index, fill_value=0)
+
+
+    expense_df = df[df["category"] == "Expense"].resample("D").sum().reindex(df.index, fill_value=0)
 
 
 CSV.initialize_csv()
