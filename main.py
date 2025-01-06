@@ -85,7 +85,9 @@ def plot_transactions(df):
     plt.xlabel("Date")
     plt.ylabel("Amount")
     plt.title("Income and Expense Over Time")
-    plt.
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
 
 def main():
@@ -102,7 +104,10 @@ def main():
         elif choice == "2":
             start_date = get_date("Enter the start date (dd-mm-yyyy): ")
             end_date = get_date("Enter the end date (dd-mm-yyyy): ")
-            CSV.get_transaction(start_date, end_date)
+            df = CSV.get_transaction(start_date, end_date)
+            if input("Do you want to see a plot? (Y/N). ").lower() == "y":
+                plot_transactions(df)
+
 
         elif choice == "3":
             print("Existing...")
