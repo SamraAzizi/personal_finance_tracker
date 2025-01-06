@@ -2,7 +2,7 @@ import pandas as pd
 import csv
 from datetime import datetime
 from data_entry import get_amount, get_category, get_date, get_description
-
+import matplotlib.pyplot as plt
 class CSV:
     CSV_FILE = "finance_data.csv"
     COLUMN = ["date", "amount", "category", "description"]
@@ -79,8 +79,13 @@ def plot_transactions(df):
     expense_df = df[df["category"] == "Expense"].resample("D").sum().reindex(df.index, fill_value=0)
 
 
-CSV.initialize_csv()
-CSV.add_entry("20-07-2024",12.,"Income","Salary")
+    plt.figure(figsize=(10,5))
+    plt.plot(income_df.index, income_df["amount"], label="Income", color="g")
+    plt.plot(expense_df.index, expense_df["amount"], label="Expense", color="r")
+    plt.xlabel("Date")
+    plt.ylabel("Amount")
+    plt.title("Income and Expense Over Time")
+    plt.
 
 
 def main():
