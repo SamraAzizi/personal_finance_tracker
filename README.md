@@ -48,14 +48,4 @@ After viewing the transactions, you can choose to see a plot that visualizes inc
 
 ### Example
 
-```bash
-1. Add a new transaction
-2. View transaction and summary within a date range
-3. Exit
-Enter your choice (1-3): 1
-Enter the date of transaction (dd-mm-yyyy) or Enter for today's date: 01-01-2025
-Enter the amount: 1000
-Enter the category 'I' for Income 'E' for Expense: I
-Enter a description (optional): Salary
 
-Entry added successfully
